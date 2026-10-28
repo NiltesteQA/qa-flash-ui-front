@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>QA Flash - UI | Apresentacao da Arquitetura</title>
+<style>
+  @page { size: A4 landscape; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1a1a2e; background: #f0f0f5; }
+  .slide { width: 297mm; height: 210mm; padding: 40px 60px; page-break-after: always; position: relative; display: flex; flex-direction: column; background: white; overflow: hidden; }
+  .slide:last-child { page-break-after: auto; }
+  .cover { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); color: white; justify-content: center; align-items: center; text-align: center; }
+  .cover .logo { font-size: 72px; margin-bottom: 20px; }
+  .cover h1 { font-size: 48px; margin-bottom: 10px; letter-spacing: 2px; }
+  .cover h2 { font-size: 24px; font-weight: 300; color: #a5b4fc; margin-bottom: 40px; }
+  .cover .footer { position: absolute; bottom: 30px; width: 100%; text-align: center; font-size: 14px; color: #888; }
+  .slide-header { border-bottom: 3px solid #6366f1; padding-bottom: 15px; margin-bottom: 30px; }
+  .slide-header .number { display: inline-block; background: #6366f1; color: white; width: 36px; height: 36px; border-radius: 50%; text-align: center; line-height: 36px; font-weight: bold; font-size: 18px; margin-right: 15px; }
+  .slide-header h2 { display: inline-block; font-size: 28px; color: #1a1a2e; vertical-align: middle; }
+  .slide-header .subtitle { color: #888; font-size: 14px; margin-top: 5px; margin-left: 51px; }
+  .slide-footer { position: absolute; bottom: 20px; left: 60px; right: 60px; display: flex; justify-content: space-between; font-size: 11px; color: #aaa; border-top: 1px solid #eee; padding-top: 8px; }
+  .content { flex: 1; display: flex; flex-direction: column; }
+  h3 { font-size: 20px; color: #4f46e5; margin-bottom: 15px; }
+  p { font-size: 15px; line-height: 1.7; color: #333; margin-bottom: 12px; }
+  .highlight { background: #eef2ff; border-left: 4px solid #6366f1; padding: 15px 20px; border-radius: 0 8px 8px 0; margin: 15px 0; }
+  .two-col { display: flex; gap: 30px; }
+  .col { flex: 1; }
+  table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 13px; }
+  th { background: #4f46e5; color: white; padding: 10px 12px; text-align: left; font-weight: 600; }
+  td { padding: 10px 12px; border-bottom: 1px solid #e5e7eb; }
+  tr:nth-child(even) { background: #f9fafb; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+  .badge-green { background: #d1fae5; color: #065f46; }
+  .badge-red { background: #fee2e2; color: #991b1b; }
+  .badge-yellow { background: #fef3c7; color: #92400e; }
+  .badge-blue { background: #dbeafe; color: #1e40af; }
+  .badge-purple { background: #ede9fe; color: #5b21b6; }
+  .diagram-container { display: flex; justify-content: center; align-items: center; flex: 1; }
+  .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 15px 0; }
+  .card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 20px; }
+  .card h4 { font-size: 16px; color: #4f46e5; margin-bottom: 10px; }
+  .card p { font-size: 13px; margin-bottom: 0; }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 - CAPA -->
+<div class="slide cover">
+  <div class="logo">&#9889;</div>
+  <h1>QA FLASH - UI</h1>
+  <h2>Agente de Automacao QA Poliglota - Frontend &amp; Interface</h2>
+  <div style="margin-top: 30px; font-size: 16px; color: #c7d2fe;">Arquitetura Completa &#183; Fluxo de 4 Fases &#183; Integracao MCP &#183; GitHub</div>
+  <div class="footer">Apresentacao Tecnica &#183; Outubro 2026 &#183; qa-flash-ui-front</div>
+</div>
+
+<!-- SLIDE 2 - O QUE E -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="number">1</span><h2>O que e o QA Flash - UI?</h2>
+    <div class="subtitle">Visao geral do agente de automacao</div>
+  </div>
+  <div class="content">
+    <p>Um assistente especialista em Engenharia de Qualidade de Software, Arquitetura de Testes e automacao <strong>BDD</strong> de Interfaces do Usuario (WEB e MOBILE).</p>
+    <div class="highlight"><p style="margin:0;"><strong>Missao:</strong> Transformar Historias de Usuario e Criterios de Aceitacao em suites de testes de UI automatizados de alta performance - com velocidade, precisao e rigor tecnico.</p></div>
+    <div class="card-grid">
+      <div class="card"><h4>&#128721; Human-in-the-Loop</h4><p>O robo <strong>nunca</strong> avanca de fase sem a aprovacao explicita do QA humano. Cada parada e inegociavel.</p></div>
+      <div class="card"><h4>&#127757; Poliglota</h4><p>Suporta Java, Python, Cypress/TypeScript e Ruby - em plataforma Web ou Mobile. O QA escolhe a stack.</p></div>
+      <div class="card"><h4>&#127942; Padroes Internacionais</h4><p>Aplica ISTQB, ISO 29119, principios FIRST, OWASP e LGPD em todo codigo gerado.</p></div>
+      <div class="card"><h4>&#128279; Integracao Total</h4><p>Conecta ao Jira via MCP, gera codigo no VS Code/Kiro e versiona no GitHub com pipeline CI/CD.</p></div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>QA Flash - UI &#183; Apresentacao da Arquitetura</span><span>2</span></div>
+</div>
+
+<!-- SLIDE 3 - ARQUITETURA -->
+<div class="slide">
+  <div class="slide-header"><span class="number">2</span><h2>Arquitetura Completa</h2><div class="subtitle">Como as pecas se conectam</div></div>
+  <div class="content">
+    <div class="diagram-container">
+      <svg width="780" height="380" viewBox="0 0 780 380">
+        <rect x="10" y="10" width="760" height="360" rx="15" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2" stroke-dasharray="5,5"/>
+        <text x="400" y="35" text-anchor="middle" font-size="14" fill="#94a3b8" font-weight="bold">AMBIENTE DO USUARIO</text>
+        <rect x="30" y="70" width="180" height="120" rx="12" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+        <text x="120" y="100" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e40af">JIRA</text>
+        <text x="120" y="125" text-anchor="middle" font-size="12" fill="#1e40af">Historia de Usuario</text>
+        <text x="120" y="142" text-anchor="middle" font-size="12" fill="#1e40af">Criterios de Aceitacao</text>
+        <text x="120" y="159" text-anchor="middle" font-size="12" fill="#1e40af">Regras de Negocio</text>
+        <rect x="300" y="70" width="180" height="120" rx="12" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+        <text x="390" y="100" text-anchor="middle" font-size="18" font-weight="bold" fill="#5b21b6">KIRO (LLM)</text>
+        <text x="390" y="125" text-anchor="middle" font-size="12" fill="#5b21b6">QA Flash - UI</text>
+        <text x="390" y="142" text-anchor="middle" font-size="12" fill="#5b21b6">Steering File</text>
+        <text x="390" y="159" text-anchor="middle" font-size="12" fill="#5b21b6">Geracao de Codigo</text>
+        <rect x="570" y="70" width="180" height="120" rx="12" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+        <text x="660" y="100" text-anchor="middle" font-size="18" font-weight="bold" fill="#065f46">GITHUB</text>
+        <text x="660" y="125" text-anchor="middle" font-size="12" fill="#065f46">Versionamento</text>
+        <text x="660" y="142" text-anchor="middle" font-size="12" fill="#065f46">Branch + Commit</text>
+        <text x="660" y="159" text-anchor="middle" font-size="12" fill="#065f46">Pipeline CI/CD</text>
+        <rect x="300" y="240" width="180" height="80" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+        <text x="390" y="270" text-anchor="middle" font-size="16" font-weight="bold" fill="#92400e">MCP</text>
+        <text x="390" y="290" text-anchor="middle" font-size="11" fill="#92400e">Model Context Protocol</text>
+        <text x="390" y="305" text-anchor="middle" font-size="11" fill="#92400e">Ponte de Integracao</text>
+        <line x1="210" y1="130" x2="300" y2="130" stroke="#3b82f6" stroke-width="2" marker-end="url(#aB)"/>
+        <line x1="300" y1="140" x2="210" y2="140" stroke="#3b82f6" stroke-width="2" marker-end="url(#aB)" stroke-dasharray="3,3"/>
+        <text x="255" y="120" text-anchor="middle" font-size="10" fill="#3b82f6">Busca historia</text>
+        <line x1="480" y1="130" x2="570" y2="130" stroke="#059669" stroke-width="2" marker-end="url(#aG)"/>
+        <line x1="570" y1="140" x2="480" y2="140" stroke="#059669" stroke-width="2" marker-end="url(#aG)" stroke-dasharray="3,3"/>
+        <text x="525" y="120" text-anchor="middle" font-size="10" fill="#059669">Push + CI/CD</text>
+        <line x1="345" y1="240" x2="120" y2="190" stroke="#d97706" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#aO)"/>
+        <line x1="435" y1="240" x2="660" y2="190" stroke="#d97706" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#aO)"/>
+        <text x="390" y="230" text-anchor="middle" font-size="11" fill="#d97706" font-weight="bold">Conecta tudo</text>
+        <defs>
+          <marker id="aB" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/></marker>
+          <marker id="aG" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#059669"/></marker>
+          <marker id="aO" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#d97706"/></marker>
+        </defs>
+      </svg>
+    </div>
+  </div>
+  <div class="slide-footer"><span>QA Flash - UI &#183; Apresentacao da Arquitetura</span><span>3</span></div>
+</div>
+
+<!-- SLIDE 4 - FLUXO 4 FASES -->
+<div class="slide">
+  <div class="slide-header"><span class="number">3</span><h2>Fluxo de Trabalho - 4 Fases</h2><div class="subtitle">Do Jira a Pipeline, com paradas obrigatorias</div></div>
+  <div class="content">
+    <div class="diagram-container">
+      <svg width="850" height="300" viewBox="0 0 850 300">
+        <rect x="10" y="60" width="190" height="160" rx="12" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+        <text x="105" y="90" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e40af">FASE 1</text>
+        <text x="105" y="112" text-anchor="middle" font-size="12" fill="#1e40af">Geracao de Cenarios</text>
+        <text x="105" y="138" text-anchor="middle" font-size="11" fill="#1e40af">Le a Historia do Jira</text>
+        <text x="105" y="155" text-anchor="middle" font-size="11" fill="#1e40af">Gera 10-15 cenarios</text>
+        <text x="105" y="172" text-anchor="middle" font-size="11" fill="#1e40af">Formato Gherkin</text>
+        <rect x="30" y="190" width="150" height="22" rx="11" fill="#ef4444"/>
+        <text x="105" y="205" text-anchor="middle" font-size="10" fill="white" font-weight="bold">PARADA 1</text>
+        <line x1="200" y1="140" x2="225" y2="140" stroke="#94a3b8" stroke-width="3" marker-end="url(#aG2)"/>
+        <rect x="230" y="60" width="190" height="160" rx="12" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+        <text x="325" y="90" text-anchor="middle" font-size="14" font-weight="bold" fill="#5b21b6">FASE 2</text>
+        <text x="325" y="112" text-anchor="middle" font-size="12" fill="#5b21b6">Construcao da Automacao</text>
+        <text x="325" y="138" text-anchor="middle" font-size="11" fill="#5b21b6">Cria estrutura do projeto</text>
+        <text x="325" y="155" text-anchor="middle" font-size="11" fill="#5b21b6">Aplica padrao POM</text>
+        <text x="325" y="172" text-anchor="middle" font-size="11" fill="#5b21b6">Stack escolhida pelo QA</text>
+        <rect x="250" y="190" width="150" height="22" rx="11" fill="#ef4444"/>
+        <text x="325" y="205" text-anchor="middle" font-size="10" fill="white" font-weight="bold">PARADA 2</text>
+        <line x1="420" y1="140" x2="445" y2="140" stroke="#94a3b8" stroke-width="3" marker-end="url(#aG2)"/>
+        <rect x="450" y="60" width="190" height="160" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+        <text x="545" y="90" text-anchor="middle" font-size="14" font-weight="bold" fill="#92400e">FASE 3</text>
+        <text x="545" y="112" text-anchor="middle" font-size="12" fill="#92400e">Execucao Local</text>
+        <text x="545" y="138" text-anchor="middle" font-size="11" fill="#92400e">Roda os testes</text>
+        <text x="545" y="155" text-anchor="middle" font-size="11" fill="#92400e">Diagnostico de falhas</text>
+        <text x="545" y="172" text-anchor="middle" font-size="11" fill="#92400e">Status: VERDE</text>
+        <rect x="470" y="190" width="150" height="22" rx="11" fill="#ef4444"/>
+        <text x="545" y="205" text-anchor="middle" font-size="10" fill="white" font-weight="bold">PARADA 3</text>
+        <line x1="640" y1="140" x2="665" y2="140" stroke="#94a3b8" stroke-width="3" marker-end="url(#aG2)"/>
+        <rect x="670" y="60" width="170" height="160" rx="12" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+        <text x="755" y="90" text-anchor="middle" font-size="14" font-weight="bold" fill="#065f46">FASE 4</text>
+        <text x="755" y="112" text-anchor="middle" font-size="12" fill="#065f46">Pipeline CI/CD</text>
+        <text x="755" y="138" text-anchor="middle" font-size="11" fill="#065f46">Git commit + push</text>
+        <text x="755" y="155" text-anchor="middle" font-size="11" fill="#065f46">Cria branch feature</text>
+        <text x="755" y="172" text-anchor="middle" font-size="11" fill="#065f46">Envia ao GitHub</text>
+        <rect x="680" y="190" width="150" height="22" rx="11" fill="#059669"/>
+        <text x="755" y="205" text-anchor="middle" font-size="10" fill="white" font-weight="bold">CONCLUIDO</text>
+        <text x="105" y="260" text-anchor="middle" font-size="11" fill="#3b82f6" font-weight="bold">Voce aprova + escolhe stack</text>
+        <text x="325" y="260" text-anchor="middle" font-size="11" fill="#7c3aed" font-weight="bold">Voce revisa o codigo</text>
+        <text x="545" y="260" text-anchor="middle" font-size="11" fill="#92400e" font-weight="bold">Voce autoriza o commit</text>
+        <text x="755" y="260" text-anchor="middle" font-size="11" fill="#065f46" font-weight="bold">Tarefa finalizada</text>
+        <defs><marker id="aG2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8"/></marker></defs>
+      </svg>
+    </div>
+  </div>
+  <div class="slide-footer"><span>QA Flash - UI &#183; Apresentacao da Arquitetura</span><span>4</span></div>
+</div>
+
+<!-- SLIDE 5 - MCP -->
+<div class="slide">
+  <div class="slide-header"><span class="number">4</span><h2>MCP - Model Context Protocol</h2><div class="subtitle">A ponte entre Kiro e ferramentas externas</div></div>
+  <div class="content">
+    <div class="two-col" style="flex:1;">
+      <div class="col">
+        <h3>O que e?</h3>
+        <p><strong>MCP = Model Context Protocol</strong></p>
+        <p>Traducao: <strong>Protocolo de Contexto do Modelo</strong></p>
+        <p>E uma ponte que permite o Kiro conversar com ferramentas externas - como Jira, GitHub, bancos de dados - sem voce precisar copiar e colar nada.</p>
+        <div class="highlight" style="margin-top:20px;">
+          <p style="margin:0;"><strong>Sem MCP:</strong> Voce copia a historia do Jira &#8594; cola no Kiro &#8594; robo executa</p>
+          <p style="margin:10px 0 0 0;"><strong>Com MCP:</strong> Voce diz "busca QA-123" &#8594; MCP busca no Jira &#8594; robo executa</p>
+        </div>
+        <h3 style="margin-top:20px;">O que o MCP conecta</h3>
+        <table>
+          <tr><th>Ferramenta</th><th>O que o Kiro faz</th></tr>
+          <tr><td>Jira</td><td>Le historias, criterios, status</td></tr>
+          <tr><td>GitHub</td><td>Le PRs, issues, codigo</td></tr>
+          <tr><td>Confluence</td><td>Le documentacoes</td></tr>
+          <tr><td>Slack</td><td>Envia notificacoes</td></tr>
+        </table>
+      </div>
+      <div class="col">
+        <div class="diagram-container">
+          <svg width="360" height="320" viewBox="0 0 360 320">
+            <circle cx="180" cy="40" r="30" fill="#6366f1"/>
+            <text x="180" y="46" text-anchor="middle" font-size="13" fill="white" font-weight="bold">VOCE</text>
+            <rect x="120" y="120" width="120" height="60" rx="10" fill="#7c3aed"/>
+            <text x="180" y="148" text-anchor="middle" font-size="14" fill="white" font-weight="bold">KIRO</text>
+            <text x="180" y="168" text-anchor="middle" font-size="11" fill="white">LLM + QA Flash</text>
+            <circle cx="180" cy="230" r="35" fill="#d97706"/>
+            <text x="180" y="228" text-anchor="middle" font-size="13" fill="white" font-weight="bold">MCP</text>
+            <text x="180" y="243" text-anchor="middle" font-size="9" fill="white">Protocol</text>
+            <rect x="20" y="270" width="100" height="45" rx="8" fill="#3b82f6"/>
+            <text x="70" y="298" text-anchor="middle" font-size="13" fill="white" font-weight="bold">JIRA</text>
+            <rect x="240" y="270" width="100" height="45" rx="8" fill="#059669"/>
+            <text x="290" y="298" text-anchor="middle" font-size="13" fill="white" font-weight="bold">GITHUB</text>
+            <line x1="180" y1="70" x2="180" y2="120" stroke="#6366f1" stroke-width="2" marker-end="url(#m1)"/>
+            <text x="195" y="100" font-size="10" fill="#6366f1">comando</text>
+            <line x1="180" y1="180" x2="180" y2="195" stroke="#7c3aed" stroke-width="2" marker-end="url(#m2)"/>
+            <text x="195" y="192" font-size="10" fill="#7c3aed">requisita</text>
+            <line x1="155" y1="250" x2="90" y2="270" stroke="#d97706" stroke-width="2" marker-end="url(#m3)"/>
+            <line x1="205" y1="250" x2="270" y2="270" stroke="#d97706" stroke-width="2" marker-end="url(#m3)"/>
+            <line x1="90" y1="270" x2="155" y2="250" stroke="#3b82f6" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#m4)"/>
+            <line x1="270" y1="270" x2="205" y2="250" stroke="#059669" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#m5)"/>
+            <defs>
+              <marker id="m1" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#6366f1"/></marker>
+              <marker id="m2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#7c3aed"/></marker>
+              <marker id="m3" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#d97706"/></marker>
+              <marker id="m4" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#3b82f6"/></marker>
+              <marker id="m5" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#059669"/></marker>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>QA Flash - UI &#183; Apresentacao da Arquitetura</span><span>5</span></div>
+</div>
+
+<!-- SLIDE 6 - TIPOS DE CENARIOS -->
+<div class="slide">
+  <div class="slide-header"><span class="number">5</span><h2>Tipos de Cenarios Gerados</h2><div class="subtitle">Cobertura completa: positivos e negativos</div></div>
+  <div class="content">
+    <div class="card-grid" style="grid-template-columns: 1fr 1fr 1fr 1fr; margin-bottom:20px;">
+      <div class="card" style="border-top: 4px solid #10b981;"><h4 style="color:#10b981;">Caminho Feliz</h4><p>Tudo funciona como esperado. O usuario faz tudo certo.</p><span class="badge badge-green">Positivo</span></div>
+      <div class="card" style="border-top: 4px solid #3b82f6;"><h4 style="color:#3b82f6;">Alternativo</h4><p>Fluxos validos mas fora do padrao principal.</p><span class="badge badge-blue">Positivo variante</span></div>
+      <div class="card" style="border-top: 4px solid #ef4444;"><h4 style="color:#ef4444;">Erros de Tela</h4><p>O usuario erra e o sistema responde corretamente.</p><span class="badge badge-red">Negativo direto</span></div>
+      <div class="card" style="border-top: 4px solid #f59e0b;"><h4 style="color:#f59e0b;">Validacoes de Borda</h4><p>Situacoes limite que quebram sistemas frageis.</p><span class="badge badge-yellow">Negativo extremo</span></div>
+    </div>
+    <h3>Distribuicao tipica dos 10-15 cenarios</h3>
+    <div class="diagram-container" style="min-height:100px;">
+      <svg width="600" height="100" viewBox="0 0 600 100">
+        <rect x="20" y="20" width="150" height="40" rx="5" fill="#10b981"/>
+        <text x="95" y="45" text-anchor="middle" font-size="13" fill="white" font-weight="bold">2-3 Caminho Feliz</text>
+        <rect x="170" y="20" width="120" height="40" rx="5" fill="#3b82f6"/>
+        <text x="230" y="45" text-anchor="middle" font-size="13" fill="white" font-weight="bold">2-3 Alternativo</text>
+        <rect x="290" y="20" width="160" height="40" rx="5" fill="#ef4444"/>
+        <text x="370" y="45" text-anchor="middle" font-size="13" fill="white" font-weight="bold">3-4 Erros de Tela</text>
+        <rect x="450" y="20" width="130" height="40" rx="5" fill="#f59e0b"/>
+        <text x="515" y="45" text-anchor="middle" font-size="13" fill="white" font-weight="bold">3-5 Borda</text>
+        <text x="300" y="85" text-anchor="middle" font-size="11" fill="#888">Total: 10 a 15 cenarios por Historia de Usuario</text>
+      </svg>
+    </div>
+  </div>
+  <div class="slide-footer"><span>QA Flash - UI &#183; Apresentacao da Arquitetura</span><span>6</span></div>
+</div>
+
+<!-- SLIDE 7 - VALIDACOES DE CAMPO -->
+<div class="slide">
+  <div class="slide-header"><span class="number">6</span><h2>Validacoes de Campo Cobertas</h2><div class="subtitle">Tudo que o robo valida automaticamente</div></div>
+  <div class="content">
+    <div class="two-col">
+      <div class="col">
+        <table>
+          <tr><th>Categoria</th><th>O que valida</th></tr>
+          <tr><td><span class="badge badge-red">Obrigatoriedade</span></td><td>Campo vazio &#8594; mensagem de erro + bloqueio de submit</td></tr>
+          <tr><td><span class="badge badge-blue">Tamanho</span></td><td>Minimo e maximo de caracteres</td></tr>
+          <tr><td><span class="badge badge-purple">Formato</span></td><td>E-mail, CPF, CNPJ, telefone, data</td></tr>
+          <tr><td><span class="badge badge-yellow">Mascara</span></td><td>Aplicacao automatica de mascara ao digitar</td></tr>
+          <tr><td><span class="badge badge-blue">Tipo de dado</span></td><td>Letras em campo numerico e vice-versa</td></tr>
+        </table>
+      </div>
+      <div class="col">
+        <table>
+          <tr><th>Categoria</th><th>O que valida</th></tr>
+          <tr><td><span class="badge badge-green">Cross-field</span></td><td>Senha &#880; Confirmar senha, Data fim &lt; Data inicio</td></tr>
+          <tr><td><span class="badge badge-red">Seguranca</span></td><td>XSS, SQL Injection, campo senha mascarado</td></tr>
+          <tr><td><span class="badge badge-yellow">Feedback visual</span></td><td>Borda vermelha/verde, icone de erro, tooltip</td></tr>
+          <tr><td><span class="badge badge-purple">Acessibilidade</span></td><td>aria-describedby, anuncio em leitor de tela</td></tr>
+          <tr><td><span class="badge badge-green">Estado do botao</span></td><td>Botao desabilitado com campos invalidos</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="highlight" style="margin-top:15px;"><p style="margin:0;"><strong>Como o robo descobre o que validar:</strong> Ele le os Criterios de Aceitacao da Historia. Quanto mais detalhado o criterio, mais rico e preciso sera o conjunto de validacoes gerado.</p></div>
+  </div>
+  <div class="slide-footer"><span>QA Flash - UI &#183; Apresentacao da Arquitetura</span><span>7</span></div>
+</div>
+
+<!-- SLIDE 8 - STACKS -->
+<div class="slide">
+  <div class="slide-header"><span class="number">7</span><h2>Stacks Disponiveis</h2><div class="subtitle">O QA escolhe a linguagem, biblioteca e tipo de teste</div></div>
+  <div class="content">
+    <div class="two-col">
+      <div class="col">
+        <h3>Plataforma Web</h3>
+        <table>
+          <tr><th>Linguagem</th><th>Stack</th></tr>
+          <tr><td><strong>Java</strong></td><td>Java 17+, Maven, Playwright/Selenium 4, JUnit 5, POM</td></tr>
+          <tr><td><strong>Python</strong></td><td>Python 3.11+, Pytest, Behave (BDD), Playwright/Selenium, POM</td></tr>
+          <tr><td><strong>Cypress/TS</strong></td><td>Node.js, Cypress, Cucumber Preprocessor, TypeScript, POM</td></tr>
+          <tr><td><strong>Ruby</strong></td><td>Bundler, Capybara, Cucumber, SitePrism (POM)</td></tr>
+        </table>
+      </div>
+      <div class="col">
+        <h3>Plataforma Mobile</h3>
+        <table>
+          <tr><th>Linguagem</th><th>Stack</th></tr>
+          <tr><td><strong>Java</strong></td><td>Java 17+, Maven, Appium Java-Client, JUnit 5, POM</td></tr>
+          <tr><td><strong>Python</strong></td><td>Python 3.11+, Appium-Python-Client, Pytest, POM</td></tr>
+          <tr><td><strong>Cypress/TS</strong></td><td>WebdriverIO + Appium, TypeScript, POM</td></tr>
+          <tr><td><strong>Ruby</strong></td><td>Bundler, Appium_lib, Cucumber, SitePrism/POM</td></tr>
+        </table>
+      </div>
+    </div>
+    <h3 style="margin-top:20px;">Tipos de Teste</h3>
+    <table>
+      <tr><th>Tipo</th><th>O que e</th><th>Quando pedir</th></tr>
+      <tr><td><span class="badge badge-blue">BDD (Gherkin)</span></td><td>Cenarios em linguagem humana (Dado/Quando/Entao)</td><td>Quando o time de negocio precisa entender os testes</td></tr>
+      <tr><td><span class="badge badge-purple">E2E</span></td><td>Fluxo completo da tela</td><td>Validar jornada inteira do usuario</td></tr>
+      <tr><td><span class="badge badge-yellow">Smoke</span></td><td>So os fluxos criticos</td><td>Validacao rapida apos deploy</td></tr>
+      <tr><td><span class="badge badge-green">Regressao</span></td><td>Todos os cenarios historicos</td><td>Garantir que nada quebrou</td></tr>
+    </table>
+  </div>
+  <div class="slide-footer"><span>QA Flash - UI &#183; Apresentacao da Arquitetura</span><span>8</span></div>
+</div>
+
+<!-- SLIDE 9 - PADROES -->
+<div class="slide">
+  <div class="slide-header"><span class="number">8</span><h2>Padroes de Qualidade Aplicados</h2><div class="subtitle">ISTQB &#183; ISO 29119 &#183; FIRST &#183; OWASP &#183; LGPD</div></div>
+  <div class="content">
+    <div class="card-grid">
+      <div class="card"><h4>Padrao de Design (POM)</h4><p>Page Object Model - separacao total entre mapeamento de elementos da tela e scripts de teste. Se a tela mudar, atualiza so o Page Object.</p></div>
+      <div class="card"><h4>Principio DRY + Padrao AAA</h4><p>Don't Repeat Yourself - reutilizacao de metodos. Arrange, Act, Assert - estrutura clara: Preparar, Executar, Validar.</p></div>
+      <div class="card"><h4>Principios FIRST</h4><p>Fast, Independent, Repeatable, Self-validating, Timely - testes rapidos, independentes, repetiveis e autovalidados.</p></div>
+      <div class="card"><h4>Locators Resilientes</h4><p>Permitido: data-testid, data-cy, accessibility-id. Proibido: XPath absoluto, CSS baseado em estrutura visual fragil.</p></div>
+      <div class="card"><h4>Sincronismo Dinamico</h4><p>Permitido: espera elemento visivel/clicavel. Proibido: Thread.sleep, time.sleep, cy.wait - pausas estaticas proibidas.</p></div>
+      <div class="card"><h4>Seguranca (OWASP/LGPD)</h4><p>Zero credenciais em texto puro. Tudo em variaveis de ambiente (.env). Dados PII nunca em fixtures de teste.</p></div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>QA Flash - UI &#183; Apresentacao da Arquitetura</span><span>9</span></div>
+</div>
+
+<!-- SLIDE 10 - DICCIONARIO -->
+<div class="slide">
+  <div class="slide-header"><span class="number">9</span><h2>Dicionario de Siglas</h2><div class="subtitle">Traducao de cada termo tecnico</div></div>
+  <div class="content">
+    <div class="two-col">
+      <div class="col">
+        <h3>IA &amp; Integracao</h3>
+        <table>
+          <tr><th>Sigla</th><th>Traducao</th></tr>
+          <tr><td><strong>LLM</strong></td><td>Large Language Model &#8594; Grande Modelo de Linguagem</td></tr>
+          <tr><td><strong>MCP</strong></td><td>Model Context Protocol &#8594; Protocolo de Contexto do Modelo</td></tr>
+          <tr><td><strong>AI</strong></td><td>Artificial Intelligence &#8594; Inteligencia Artificial</td></tr>
+        </table>
+        <h3>Testes &amp; Qualidade</h3>
+        <table>
+          <tr><th>Sigla</th><th>Traducao</th></tr>
+          <tr><td><strong>QA</strong></td><td>Quality Assurance &#8594; Garantia de Qualidade</td></tr>
+          <tr><td><strong>BDD</strong></td><td>Behavior-Driven Development &#8594; Desenvolvimento Guiado por Comportamento</td></tr>
+          <tr><td><strong>E2E</strong></td><td>End-to-End &#8594; Ponta a Ponta</td></tr>
+          <tr><td><strong>UI</strong></td><td>User Interface &#8594; Interface do Usuario</td></tr>
+          <tr><td><strong>POM</strong></td><td>Page Object Model &#8594; Modelo de Objeto de Pagina</td></tr>
+          <tr><td><strong>AAA</strong></td><td>Arrange, Act, Assert &#8594; Preparar, Executar, Validar</td></tr>
+          <tr><td><strong>FIRST</strong></td><td>Fast, Independent, Repeatable, Self-validating, Timely</td></tr>
+          <tr><td><strong>DRY</strong></td><td>Don't Repeat Yourself &#8594; Nao Se Repita</td></tr>
+        </table>
+      </div>
+      <div class="col">
+        <h3>Padroes &amp; Compliance</h3>
+        <table>
+          <tr><th>Sigla</th><th>Traducao</th></tr>
+          <tr><td><strong>ISTQB</strong></td><td>Conselho Internacional de Qualificacoes em Teste de Software</td></tr>
+          <tr><td><strong>ISO 29119</strong></td><td>Norma Internacional de Teste de Software</td></tr>
+          <tr><td><strong>OWASP</strong></td><td>Projeto Aberto de Seguranca de Aplicacoes Web</td></tr>
+          <tr><td><strong>LGPD</strong></td><td>Lei Geral de Protecao de Dados</td></tr>
+          <tr><td><strong>WCAG</strong></td><td>Diretrizes de Acessibilidade para Conteudo Web</td></tr>
+          <tr><td><strong>PII</strong></td><td>Informacao Pessoal Identificavel</td></tr>
+        </table>
+        <h3>Desenvolvimento</h3>
+        <table>
+          <tr><th>Sigla</th><th>Traducao</th></tr>
+          <tr><td><strong>CI/CD</strong></td><td>Continuous Integration / Continuous Delivery &#8594; Integracao/Entrega Continua</td></tr>
+          <tr><td><strong>API</strong></td><td>Application Programming Interface &#8594; Interface de Programacao de Aplicacoes</td></tr>
+          <tr><td><strong>IDE</strong></td><td>Integrated Development Environment &#8594; Ambiente de Desenvolvimento Integrado</td></tr>
+          <tr><td><strong>DOM</strong></td><td>Document Object Model &#8594; Modelo de Objeto de Documento</td></tr>
+          <tr><td><strong>SDK</strong></td><td>Software Development Kit &#8594; Kit de Desenvolvimento de Software</td></tr>
+          <tr><td><strong>JSON</strong></td><td>JavaScript Object Notation &#8594; Notacao de Objeto JavaScript</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>QA Flash - UI &#183; Apresentacao da Arquitetura</span><span>10</span></div>
+</div>
+
+<!-- SLIDE 11 - ESTRUTURA -->
+<div class="slide">
+  <div class="slide-header"><span class="number">10</span><h2>Estrutura do Projeto no GitHub</h2><div class="subtitle">Como fica o repositorio</div></div>
+  <div class="content">
+    <div class="two-col">
+      <div class="col">
+        <h3>Estrutura atual</h3>
+        <div style="background:#1a1a2e; color:#a5b4fc; padding:20px; border-radius:10px; font-family:'Courier New',monospace; font-size:13px; line-height:1.8;">
+qa-flash-ui-front/<br>
+&#9500;&#9472;&#9472; README.md<br>
+&#9500;&#9472;&#9472; docs/<br>
+&#9474;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; passo-a-passo-do-robo.md<br>
+&#9492;&#9472;&#9472; .kiro/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; steering/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9474;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; qa-flash-ui.md<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; hooks/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; qa-flash-ui-session-start.json
+        </div>
+        <div style="margin-top:15px;"><span class="badge badge-green">Pronto</span> Steering + Hook + Documentacao</div>
+      </div>
+      <div class="col">
+        <h3>Estrutura apos automacao</h3>
+        <div style="background:#1a1a2e; color:#86efac; padding:20px; border-radius:10px; font-family:'Courier New',monospace; font-size:13px; line-height:1.8;">
+qa-flash-ui-front/<br>
+&#9500;&#9472;&#9472; README.md<br>
+&#9500;&#9472;&#9472; docs/<br>
+&#9500;&#9472;&#9472; .kiro/<br>
+&#9500;&#9472;&#9472; <span style="color:#fbbf24;">features/</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8592; Cenarios .feature<br>
+&#9500;&#9472;&#9472; <span style="color:#fbbf24;">pages/</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8592; Page Objects<br>
+&#9500;&#9472;&#9472; <span style="color:#fbbf24;">steps/</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#8592; Steps BDD<br>
+&#9500;&#9472;&#9472; <span style="color:#fbbf24;">support/</span>&nbsp;&nbsp;&nbsp;&nbsp;&#8592; Configuracoes<br>
+&#9492;&#9472;&#9472; <span style="color:#fbbf24;">package.json</span>&nbsp;&#8592; Dependencias
+        </div>
+        <div style="margin-top:15px;"><span class="badge badge-yellow">Gerado na FASE 2</span> Quando o QA aprovar os cenarios</div>
+      </div>
+    </div>
+    <div class="highlight" style="margin-top:20px;"><p style="margin:0;"><strong>Status atual:</strong> O robo esta configurado e versionado no GitHub. Falta apenas configurar o MCP com o Jira para o fluxo ficar 100% automatizado.</p></div>
+  </div>
+  <div class="slide-footer"><span>QA Flash - UI &#183; Apresentacao da Arquitetura</span><span>11</span></div>
+</div>
+
+<!-- SLIDE 12 - PARADAS -->
+<div class="slide">
+  <div class="slide-header"><span class="number">11</span><h2>Resumo das Paradas Obrigatorias</h2><div class="subtitle">O QA humano e sempre a ultima palavra</div></div>
+  <div class="content">
+    <table>
+      <tr><th>Fase</th><th>O robo entrega</th><th>Voce decide</th><th>Status</th></tr>
+      <tr><td><strong>FASE 1</strong></td><td>10-15 cenarios Gherkin</td><td>Aprovar cenarios + escolher plataforma e linguagem</td><td><span class="badge badge-yellow">Aguardando Historia</span></td></tr>
+      <tr><td><strong>FASE 2</strong></td><td>Codigo completo com POM</td><td>Revisar codigo + autorizar execucao</td><td><span class="badge badge-blue">Pos FASE 1</span></td></tr>
+      <tr><td><strong>FASE 3</strong></td><td>Resultado dos testes (Verde/Vermelho)</td><td>Autorizar commit e push</td><td><span class="badge badge-purple">Pos FASE 2</span></td></tr>
+      <tr><td><strong>FASE 4</strong></td><td>Branch criada e enviada ao GitHub</td><td>Tarefa concluida</td><td><span class="badge badge-green">Pos FASE 3</span></td></tr>
+    </table>
+    <div class="highlight" style="margin-top:30px; text-align:center;">
+      <p style="margin:0; font-size:18px;"><strong>Cada parada obrigatoria e inegociavel.</strong></p>
+      <p style="margin:5px 0 0 0; font-size:15px; color:#6366f1;">O QA humano e sempre a ultima palavra em qualquer decisao de avanco de fase.</p>
+    </div>
+    <div style="text-align:center; margin-top:30px;"><p style="font-size:14px; color:#888;">Repositorio: github.com/NiltesteQA/qa-flash-ui-front</p></div>
+  </div>
+  <div class="slide-footer"><span>QA Flash - UI &#183; Apresentacao da Arquitetura</span><span>12</span></div>
+</div>
+
+<!-- SLIDE 13 - ENCERRAMENTO -->
+<div class="slide cover">
+  <div class="logo">&#9889;</div>
+  <h1 style="font-size:36px;">QA Flash - UI</h1>
+  <h2>Pronto para Operar</h2>
+  <div style="margin-top:40px; text-align:center; font-size:16px; color:#c7d2fe; line-height:2.2;">
+    Steering File configurado<br>
+    Hook de Sessao ativo<br>
+    Documentacao completa<br>
+    Repositorio no GitHub<br>
+    MCP com Jira (proximo passo)
+  </div>
+  <div style="margin-top:40px; text-align:center; font-size:14px; color:#a5b4fc;">"Cole a Historia de Usuario e o robo entra em acao!"</div>
+  <div style="margin-top:50px; text-align:center; border-top: 1px solid rgba(255,255,255,0.15); padding-top:20px;">
+    <div style="font-size:20px; color:#fff; font-weight:bold;">Nilson Correa Souza</div>
+    <div style="font-size:15px; color:#a5b4fc; margin-top:5px;">Analista de Teste - QA Engineer</div>
+  </div>
+  <div class="footer">Apresentacao Tecnica &#183; Outubro 2026 &#183; github.com/NiltesteQA/qa-flash-ui-front</div>
+</div>
+
+</body>
+</html>

@@ -202,3 +202,31 @@ Cenário: Campo e-mail com formato inválido
 ---
 
 *Documento gerado em 19/10/2026 | QA Flash - UI | qa-flash-ui-front*
+
+---
+
+## 📍 Ponto de Retomada — Próximos Passos
+
+### ✅ O que já está pronto
+
+| Item | Status | Localização |
+|------|--------|-------------|
+| Steering file do agente | ✅ Feito | `.kiro/steering/qa-flash-ui.md` |
+| Hook de sessão | ✅ Feito | `.kiro/hooks/qa-flash-ui-session-start.json` |
+| Passo a passo documentado | ✅ Feito | `docs/passo-a-passo-do-robo.md` |
+| Repositório GitHub | ✅ Feito | `https://github.com/NiltesteQA/qa-flash-ui-front` |
+
+### ⏳ Próximo passo ao retornar
+
+**Configurar o MCP do Jira** para o robô buscar histórias diretamente pelo número do ticket.
+
+O que será necessário:
+1. URL do Jira (ex: `https://seutime.atlassian.net`)
+2. E-mail da conta Jira
+3. Token de API (gerar em `https://id.atlassian.com/manage-profile/security/api-tokens`)
+
+Após configurar, o fluxo será:
+```
+Você digita: "busca a história QA-123 e executa a FASE 1"
+Robô busca no Jira automaticamente e gera os cenários BDD
+```
