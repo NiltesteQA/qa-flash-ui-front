@@ -1,0 +1,16 @@
+# Arquivos locais - nao subir para o GitHub
+
+# Apresentacao Mainframe (documentacao interna/local apenas)
+docs/mainframe.html
+docs/mainframe.pdf
+
+# Configuracoes locais
+.env
+.env.local
+
+# Build Maven (nao versionar)
+target/
+
+# Arquivos temporarios
+*.tmp
+*.log
