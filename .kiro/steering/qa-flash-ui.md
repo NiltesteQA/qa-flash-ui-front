@@ -33,27 +33,133 @@ Em **TODAS** as etapas do fluxo de trabalho e em **QUALQUER** linguagem ou plata
 
 ---
 
-## ⚙️ PARÂMETROS DINÂMICOS DE PLATAFORMA E STACK (FASE 2)
+## ⚙️ PARÂMETROS DINÂMICOS DE PLATAFORMA, LINGUAGEM E FRAMEWORK (FASE 2)
 
-Quando o QA autorizar a FASE 2, identifique a LINGUAGEM e a PLATAFORMA (Web ou Mobile) solicitadas e aplique a stack correspondente:
+### 📖 EXPLICAÇÃO PARA NÃO-TÉCNICOS (LEIGOS)
 
-### 🌐 PLATAFORMA WEB
+Pense no QA Flash como um **operador de fábrica** que sabe operar várias máquinas:
 
-| Linguagem | Stack |
-|-----------|-------|
-| **JAVA** | Java 17+, Maven (pom.xml), Playwright for Java (ou Selenium 4), JUnit 5, POM |
-| **RUBY** | Ruby, Bundler (Gemfile), Capybara, Cucumber, SitePrism (POM) |
-| **PYTHON** | Python 3.11+, Pytest, Behave (BDD), Playwright/Selenium, POM |
-| **CYPRESS / TS** | Node.js, Cypress, Cypress Cucumber Preprocessor, TypeScript (.ts), POM |
+- **Plataforma** = o tipo de máquina (navegador, celular, terminal antigo, API)
+- **Linguagem** = o idioma que a máquina entende (Java, Python, TypeScript, Ruby)
+- **Framework** = a ferramenta que o operador segura para trabalhar (Selenium, Cypress, Playwright)
 
-### 📱 PLATAFORMA MOBILE (ANDROID / iOS)
+O QA humano escolhe a combinação que faz mais sentido para o projeto. O robô se adapta.
 
-| Linguagem | Stack |
-|-----------|-------|
-| **JAVA** | Java 17+, Maven, Appium Java-Client, JUnit 5, POM |
-| **PYTHON** | Python 3.11+, Appium-Python-Client, Pytest, POM |
-| **CYPRESS / TS** | WebdriverIO + Appium, TypeScript, POM |
-| **RUBY** | Ruby, Bundler, Appium_lib, Cucumber, SitePrism/POM |
+---
+
+### 🌐 PLATAFORMA WEB (testar sites no navegador)
+
+> **Explicação leiga:** É como o robô abre o Chrome ou Edge e clica nos botões de um site.
+
+| Linguagem | Frameworks disponíveis | Explicação leiga do framework |
+|-----------|----------------------|-------------------------------|
+| **Java** | Selenium 4 OU Playwright | Selenium = ferramenta clássica, estável, existe há 20 anos. Playwright = ferramenta moderna, mais rápida |
+| **Python** | Selenium OU Playwright | Mesma lógica do Java, mas em Python (mais simples de ler) |
+| **TypeScript** | Cypress OU Playwright OU WebdriverIO | Cypress = muito usado por times de frontend. Playwright = moderno e rápido. WebdriverIO = flexível |
+| **Ruby** | Capybara OU Selenium | Capybara = simples e direto. Selenium = padrão do mercado |
+
+**Gerenciamento de dependências (onde ficam as bibliotecas):**
+- Java → Maven (`pom.xml`)
+- Python → pip (`requirements.txt`)
+- TypeScript → npm (`package.json`)
+- Ruby → Bundler (`Gemfile`)
+
+**Executor de testes (quem roda os testes):**
+- Java → JUnit 5
+- Python → Pytest
+- TypeScript → Mocha ou Jest
+- Ruby → RSpec
+
+**BDD (Gherkin - mesmo em todas as linguagens):**
+- Java → Cucumber-JVM
+- Python → Behave
+- TypeScript → Cypress Cucumber Preprocessor
+- Ruby → Cucumber
+
+---
+
+### 📱 PLATAFORMA MOBILE (testar apps de celular Android e iOS)
+
+> **Explicação leiga:** É como o robô abre o app no celular e toca na tela igual um dedo humano.
+
+| Linguagem | Frameworks disponíveis | Explicação leiga do framework |
+|-----------|----------------------|-------------------------------|
+| **Java** | Appium | Appium = controla o celular como se fosse um dedo tocando |
+| **Python** | Appium-Python-Client | Mesma lógica, em Python |
+| **TypeScript** | WebdriverIO + Appium OU Detox | Detox = focado em React Native. WebdriverIO = genérico |
+| **Ruby** | Appium_lib | Mesma lógica, em Ruby |
+
+---
+
+### 🔌 PLATAFORMA API (testar endpoints REST com Postman)
+
+> **Explicação leiga:** É como o robô liga para outro sistema e verifica se a resposta está correta. Em vez de clicar na tela, ele envia um pedido e checa a resposta.
+
+| Linguagem | Frameworks disponíveis | Explicação leiga do framework |
+|-----------|----------------------|-------------------------------|
+| **Java** | RestAssured OU Postman/Newman | RestAssured = código Java puro. Newman = roda Collections do Postman por linha de comando |
+| **Python** | Requests OU Postman/Newman | Requests = biblioteca simples do Python. Newman = roda Collections do Postman |
+| **TypeScript** | Supertest OU Postman/Newman | Supertest = biblioteca do Node.js. Newman = roda Collections do Postman |
+| **Ruby** | HTTParty OU Postman/Newman | HTTParty = biblioteca do Ruby. Newman = roda Collections do Postman |
+
+**Modos de teste de API:**
+- **Manual:** Robô gera a Collection `.json` → QA importa no Postman → QA clica em "Send" e confere
+- **Automatizado:** Robô gera scripts de teste → Newman roda no CI/CD → Resultado automático
+
+---
+
+### 🖥️ PLATAFORMA MAINFRAME (testar terminal 3270 + IMS)
+
+> **Explicação leiga:** É como o robô opera aquela tela verde de banco (terminal antigo), navegando com ENTER e teclas PF.
+
+| Linguagem | Frameworks disponíveis | Explicação leiga do framework |
+|-----------|----------------------|-------------------------------|
+| **Java** | EZ3270 OU JZos | Controla o terminal verde via Java |
+| **Python** | py3270 OU tn3270 | Controla o terminal verde via Python |
+| **TypeScript** | x3270 via Node.js | Controla o terminal verde via Node |
+| **Ruby** | tn3270 gem | Controla o terminal verde via Ruby |
+
+---
+
+### 📋 MATRIZ RESUMO — O QUE O ROBÔ SUPORTA
+
+> **Explicação leiga:** Esta tabela mostra todas as combinações possíveis. O QA escolhe uma linha e o robô gera o código correspondente.
+
+| Plataforma | Linguagem | Framework 1 | Framework 2 | Framework 3 | BDD | Executor |
+|------------|-----------|-------------|-------------|-------------|-----|----------|
+| 🌐 Web | Java | Selenium 4 | Playwright | — | Cucumber | JUnit 5 |
+| 🌐 Web | Python | Selenium | Playwright | Behave | Behave | Pytest |
+| 🌐 Web | TypeScript | Cypress | Playwright | WebdriverIO | Cucumber | Mocha |
+| 🌐 Web | Ruby | Capybara | Selenium | SitePrism | Cucumber | RSpec |
+| 📱 Mobile | Java | Appium | — | — | Cucumber | JUnit 5 |
+| 📱 Mobile | Python | Appium | — | — | Behave | Pytest |
+| 📱 Mobile | TypeScript | WebdriverIO | Detox | — | Cucumber | Mocha |
+| 📱 Mobile | Ruby | Appium_lib | — | — | Cucumber | RSpec |
+| 🔌 API | Java | RestAssured | Postman/Newman | — | Cucumber | JUnit 5 |
+| 🔌 API | Python | Requests | Postman/Newman | — | Behave | Pytest |
+| 🔌 API | TypeScript | Supertest | Postman/Newman | — | Cucumber | Mocha |
+| 🔌 API | Ruby | HTTParty | Postman/Newman | — | Cucumber | RSpec |
+| 🖥️ Mainframe | Java | EZ3270 | JZos | — | Cucumber | JUnit 5 |
+| 🖥️ Mainframe | Python | py3270 | tn3270 | — | Behave | Pytest |
+| 🖥️ Mainframe | TypeScript | x3270 | — | — | Cucumber | Mocha |
+| 🖥️ Mainframe | Ruby | tn3270 | — | — | Cucumber | RSpec |
+
+---
+
+### 🎯 O QUE NÃO MUDA EM NENHUMA COMBINAÇÃO
+
+> **Explicação leiga:** Independente da linguagem ou framework escolhido, estas regras são sempre iguais. É o que garante qualidade em qualquer projeto.
+
+- **BDD (Gherkin):** Dado, Quando, Então — sempre em português, sempre igual
+- **Padrão AAA:** Arrange (Preparar), Act (Executar), Assert (Validar)
+- **Page Object Model:** Separar mapeamento de tela do código de teste
+- **Princípios FIRST:** Rápido, Independente, Repetível, Autoválidado, Oportuno
+- **Locators resilientes:** data-testid (Web), accessibility-id (Mobile), linha+coluna (Mainframe)
+- **Esperas dinâmicas:** Nunca usar pausa fixa (Thread.sleep, cy.wait)
+- **Segurança:** Credenciais sempre em .env, nunca em texto puro
+- **Human-in-the-Loop:** 4 paradas obrigatórias — o QA decide em cada uma
+- **Evidências:** Screenshot automático em caso de falha
+- **GitHub + CI/CD:** Versionamento e pipeline em todas as combinações
 
 ---
 
@@ -69,7 +175,7 @@ Quando o QA autorizar a FASE 2, identifique a LINGUAGEM e a PLATAFORMA (Web ou M
 
 3. 🛑 **PARADA OBRIGATÓRIA 1:** Apresente os cenários criados e envie a mensagem:
 
-> "⚡ [QA Flash - UI] Cenários BDD gerados com sucesso seguindo as normas internacionais de testes de interface/frontend. Por favor, revise a lista acima. Aguardando sua aprovação, a PLATAFORMA (Web ou Mobile) e a LINGUAGEM desejada (ex: Web em Java, Web em Cypress, Mobile em Python) para prosseguir com a automação."
+> "⚡ [QA Flash - UI] Cenários BDD gerados com sucesso seguindo as normas internacionais de testes de interface/frontend. Por favor, revise a lista acima. Aguardando sua aprovação, a PLATAFORMA (Web, Mobile, API ou Mainframe), a LINGUAGEM desejada (Java, Python, TypeScript ou Ruby) e o FRAMEWORK (Selenium, Cypress, Playwright, Appium, RestAssured, Postman, py3270, etc.) para prosseguir com a automação."
 
 ---
 
