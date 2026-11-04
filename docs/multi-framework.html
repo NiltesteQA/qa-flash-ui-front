@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>QA Flash - Multi-Framework</title>
+<style>
+@page { size: A4 landscape; margin: 0; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1a1a2e; background: #f0f0f5; }
+.slide { width: 297mm; height: 210mm; padding: 40px 60px; page-break-after: always; position: relative; display: flex; flex-direction: column; background: white; overflow: hidden; }
+.slide:last-child { page-break-after: auto; }
+.cover { background: linear-gradient(135deg, #0a0e27, #1a1a4e, #0a0e27); color: white; justify-content: center; align-items: center; text-align: center; }
+.cover .logo { font-size: 64px; margin-bottom: 20px; }
+.cover h1 { font-size: 44px; margin-bottom: 10px; letter-spacing: 2px; }
+.cover h2 { font-size: 22px; font-weight: 300; color: #38bdf8; margin-bottom: 40px; }
+.cover .footer { position: absolute; bottom: 30px; width: 100%; text-align: center; font-size: 14px; color: #64748b; }
+.slide-header { border-bottom: 3px solid #0ea5e9; padding-bottom: 15px; margin-bottom: 25px; }
+.slide-header .number { display: inline-block; background: #0ea5e9; color: white; width: 36px; height: 36px; border-radius: 50%; text-align: center; line-height: 36px; font-weight: bold; font-size: 18px; margin-right: 15px; }
+.slide-header h2 { display: inline-block; font-size: 26px; color: #1a1a2e; vertical-align: middle; }
+.slide-header .subtitle { color: #888; font-size: 14px; margin-top: 5px; margin-left: 51px; }
+.slide-footer { position: absolute; bottom: 20px; left: 60px; right: 60px; display: flex; justify-content: space-between; font-size: 11px; color: #aaa; border-top: 1px solid #eee; padding-top: 8px; }
+.content { flex: 1; display: flex; flex-direction: column; }
+h3 { font-size: 18px; color: #0369a1; margin-bottom: 12px; }
+p { font-size: 14px; line-height: 1.6; color: #333; margin-bottom: 10px; }
+.highlight { background: #e0f2fe; border-left: 4px solid #0ea5e9; padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 12px 0; }
+.leigo-box { background: #fef9e7; border: 2px solid #f59e0b; border-radius: 10px; padding: 16px 20px; margin: 12px 0; }
+.leigo-box .leigo-title { font-size: 14px; font-weight: bold; color: #92400e; margin-bottom: 8px; }
+.leigo-box p { font-size: 15px; color: #78350f; margin: 0; }
+.two-col { display: flex; gap: 25px; }
+.col { flex: 1; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 12px; }
+th { background: #0369a1; color: white; padding: 8px 10px; text-align: left; font-weight: 600; }
+td { padding: 8px 10px; border-bottom: 1px solid #e5e7eb; }
+tr:nth-child(even) { background: #f8fafc; }
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 12px 0; }
+.card-grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 15px; margin: 12px 0; }
+.card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px; }
+.card h4 { font-size: 15px; color: #0369a1; margin-bottom: 8px; }
+.card p { font-size: 12px; margin-bottom: 0; }
+.diagram-container { display: flex; justify-content: center; align-items: center; flex: 1; }
+.code-block { background: #0f172a; color: #7dd3fc; padding: 16px; border-radius: 8px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.6; margin: 8px 0; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+
+<div class="slide cover">
+  <div class="logo">&#9889;</div>
+  <h1>QA FLASH</h1>
+  <h2>Multi-Linguagem, Multi-Framework e Multi-Plataforma</h2>
+  <div style="margin-top: 30px; font-size: 16px; color: #7dd3fc;">Web &#183; Mobile &#183; API &#183; Mainframe</div>
+  <div style="margin-top: 15px; font-size: 14px; color: #94a3b8;">Explicacao completa para tecnicos e nao-tecnicos</div>
+  <div class="footer">Novembro 2026 &#183; github.com/NiltesteQA/qa-flash-ui-front</div>
+</div>
+
+<div class="slide">
+  <div class="slide-header"><span class="number">1</span><h2>Explicacao para Nao-Tecnicos</h2><div class="subtitle">Entendendo sem precisar ser programador</div></div>
+  <div class="content">
+    <div class="leigo-box">
+      <div class="leigo-title">&#128161; A ANALOGIA DO OPERADOR DE FABRICA</div>
+      <p>Pense no QA Flash como um <strong>operador de fabrica</strong> que sabe operar varias maquinas. Ele nao importa qual maquina voce coloque na frente dele - ele se adapta e trabalha.</p>
+    </div>
+    <div class="card-grid-4">
+      <div class="card" style="border-top: 4px solid #3b82f6;">
+        <h4 style="color:#3b82f6;">Plataforma</h4>
+        <p><strong>Explicacao leiga:</strong> E o tipo de maquina onde o robo trabalha.</p>
+        <p style="margin-top:8px;">Exemplos: Navegador (site), Celular (app), Terminal verde (banco), API (sistema interno)</p>
+      </div>
+      <div class="card" style="border-top: 4px solid #7c3aed;">
+        <h4 style="color:#7c3aed;">Linguagem</h4>
+        <p><strong>Explicacao leiga:</strong> E o idioma que o robo fala para comandar a maquina.</p>
+        <p style="margin-top:8px;">Exemplos: Java (empresas), Python (simples), TypeScript (frontend), Ruby (legado)</p>
+      </div>
+      <div class="card" style="border-top: 4px solid #f59e0b;">
+        <h4 style="color:#f59e0b;">Framework</h4>
+        <p><strong>Explicacao leiga:</strong> E a ferramenta que o robo segura para operar.</p>
+        <p style="margin-top:8px;">Exemplos: Selenium (classico), Cypress (moderno), Playwright (rapido), Appium (celular)</p>
+      </div>
+      <div class="card" style="border-top: 4px solid #059669;">
+        <h4 style="color:#059669;">BDD</h4>
+        <p><strong>Explicacao leiga:</strong> E a lingua que todo mundo entende - do estagiario ao diretor.</p>
+        <p style="margin-top:8px;">Formato: Dado (preparar), Quando (executar), Entao (validar)</p>
+      </div>
+    </div>
+    <div class="highlight"><p style="margin:0;"><strong>Resumo:</strong> O QA escolhe 3 coisas (Plataforma + Linguagem + Framework) e o robo gera o codigo pronto. As regras de qualidade sao sempre as mesmas, independente da escolha.</p></div>
+  </div>
+  <div class="slide-footer"><span>QA Flash &#183; Multi-Framework</span><span>2</span></div>
+</div>
+
+<div class="slide">
+  <div class="slide-header"><span class="number">2</span><h2>Plataforma WEB</h2><div class="subtitle">Testar sites no navegador</div></div>
+  <div class="content">
+    <div class="leigo-box"><div class="leigo-title">EXPLICACAO LEIGA</div><p>E como o robo abre o Chrome ou Edge e clica nos botoes de um site. Ele digita, clica, rola a pagina e verifica se tudo aparece corretamente - igual um humano faria, mas automatico.</p></div>
+    <h3>Opcoes disponiveis</h3>
+    <table>
+      <tr><th>Linguagem</th><th>Frameworks</th><th>Explicacao de cada Framework</th><th>Dependencias</th><th>Executor</th></tr>
+      <tr><td><strong>Java</strong></td><td>Selenium 4 ou Playwright</td><td>Selenium = classico, 20 anos de mercado. Playwright = moderno e rapido</td><td>Maven (pom.xml)</td><td>JUnit 5</td></tr>
+      <tr><td><strong>Python</strong></td><td>Selenium ou Playwright</td><td>Mesma logica do Java, mas em Python (mais simples de ler)</td><td>pip (requirements.txt)</td><td>Pytest</td></tr>
+      <tr><td><strong>TypeScript</strong></td><td>Cypress ou Playwright ou WebdriverIO</td><td>Cypress = querido dos frontends. Playwright = rapido. WebdriverIO = flexivel</td><td>npm (package.json)</td><td>Mocha</td></tr>
+      <tr><td><strong>Ruby</strong></td><td>Capybara ou Selenium</td><td>Capybara = simples e direto. Selenium = padrao do mercado</td><td>Bundler (Gemfile)</td><td>RSpec</td></tr>
+    </table>
+    <div class="highlight"><p style="margin:0;"><strong>Importante:</strong> Em todas as linguagens, o BDD (Gherkin) e identico. O que muda e como o codigo executa por tras.</p></div>
+  </div>
+  <div class="slide-footer"><span>QA Flash &#183; Multi-Framework</span><span>3</span></div>
+</div>
+
+<div class="slide">
+  <div class="slide-header"><span class="number">3</span><h2>Plataforma MOBILE</h2><div class="subtitle">Testar apps de celular (Android e iOS)</div></div>
+  <div class="content">
+    <div class="leigo-box"><div class="leigo-title">EXPLICACAO LEIGA</div><p>E como o robo abre o app no celular e toca na tela igual um dedo humano. Ele desliza, toca, digita e verifica se o app responde corretamente.</p></div>
+    <h3>Opcoes disponiveis</h3>
+    <table>
+      <tr><th>Linguagem</th><th>Frameworks</th><th>Explicacao de cada Framework</th><th>Executor</th></tr>
+      <tr><td><strong>Java</strong></td><td>Appium</td><td>Appium = controla o celular como se fosse um dedo tocando</td><td>JUnit 5</td></tr>
+      <tr><td><strong>Python</strong></td><td>Appium-Python-Client</td><td>Mesma logica, em Python</td><td>Pytest</td></tr>
+      <tr><td><strong>TypeScript</strong></td><td>WebdriverIO + Appium ou Detox</td><td>Detox = focado em React Native. WebdriverIO = generico</td><td>Mocha</td></tr>
+      <tr><td><strong>Ruby</strong></td><td>Appium_lib</td><td>Mesma logica, em Ruby</td><td>RSpec</td></tr>
+    </table>
+    <div class="card-grid">
+      <div class="card"><h4>Diferenca entre Web e Mobile</h4><p><strong>Web:</strong> Robo usa o navegador (Chrome). Seletor: data-testid</p><p><strong>Mobile:</strong> Robo usa o emulador ou celular real. Seletor: accessibility-id</p></div>
+      <div class="card"><h4>O que muda no codigo</h4><p>A logica do teste e a mesma. O que muda e <strong>como</strong> o robo encontra o botao na tela - no navegador e por CSS, no celular e por accessibility-id.</p></div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>QA Flash &#183; Multi-Framework</span><span>4</span></div>
+</div>
+
+<div class="slide">
+  <div class="slide-header"><span class="number">4</span><h2>Plataforma API (Postman)</h2><div class="subtitle">Testar endpoints REST - manual e automatizado</div></div>
+  <div class="content">
+    <div class="leigo-box"><div class="leigo-title">EXPLICACAO LEIGA</div><p>E como o robo liga para outro sistema e verifica se a resposta esta correta. Em vez de clicar na tela, ele envia um pedido (requisicao) e checa se a resposta (status, dados) esta certa.</p></div>
+    <div class="two-col">
+      <div class="col">
+        <h3>Modo MANUAL (QA confere)</h3>
+        <div style="background: #dbeafe; border-radius: 10px; padding: 15px; border: 2px solid #3b82f6;">
+          <p style="margin:0; font-size:13px;">1. Robo gera Collection .json do Postman</p>
+          <p style="margin:0; font-size:13px;">2. QA importa no Postman</p>
+          <p style="margin:0; font-size:13px;">3. QA clica em "Send"</p>
+          <p style="margin:0; font-size:13px;">4. QA confere o resultado na tela</p>
+          <p style="margin:0; font-size:13px;">5. QA aprova ou reprova</p>
+          <p style="margin-top:8px; font-size:13px; color:#1e40af;"><strong>Para que serve:</strong> Explorar, debugar, entender a API</p>
+        </div>
+      </div>
+      <div class="col">
+        <h3>Modo AUTOMATIZADO (CI/CD)</h3>
+        <div style="background: #d1fae5; border-radius: 10px; padding: 15px; border: 2px solid #059669;">
+          <p style="margin:0; font-size:13px;">1. Robo gera scripts de teste</p>
+          <p style="margin:0; font-size:13px;">2. Newman roda no CI/CD</p>
+          <p style="margin:0; font-size:13px;">3. Resultado automatico</p>
+          <p style="margin:0; font-size:13px;">4. Relatorio gerado sozinho</p>
+          <p style="margin:0; font-size:13px;">5. QA revisa o relatorio</p>
+          <p style="margin-top:8px; font-size:13px; color:#065f46;"><strong>Para que serve:</strong> Regressao continua, pipeline</p>
+        </div>
+      </div>
+    </div>
+    <h3>Opcoes disponiveis</h3>
+    <table>
+      <tr><th>Linguagem</th><th>Framework 1 (codigo)</th><th>Framework 2 (Postman)</th><th>Executor</th></tr>
+      <tr><td><strong>Java</strong></td><td>RestAssured</td><td>Postman/Newman</td><td>JUnit 5</td></tr>
+      <tr><td><strong>Python</strong></td><td>Requests</td><td>Postman/Newman</td><td>Pytest</td></tr>
+      <tr><td><strong>TypeScript</strong></td><td>Supertest</td><td>Postman/Newman</td><td>Mocha</td></tr>
+      <tr><td><strong>Ruby</strong></td><td>HTTParty</td><td>Postman/Newman</td><td>RSpec</td></tr>
+    </table>
+  </div>
+  <div class="slide-footer"><span>QA Flash &#183; Multi-Framework</span><span>5</span></div>
+</div>
+
+<div class="slide">
+  <div class="slide-header"><span class="number">5</span><h2>Plataforma MAINFRAME</h2><div class="subtitle">Testar terminal 3270 + IMS</div></div>
+  <div class="content">
+    <div class="leigo-box"><div class="leigo-title">EXPLICACAO LEIGA</div><p>E como o robo opera aquela tela verde de banco (terminal antigo), navegando com ENTER e teclas PF7/PF3. Em vez de mouse, usa o teclado. Em vez de botoes coloridos, usa campos em posicoes fixas (linha 5, coluna 20).</p></div>
+    <h3>Opcoes disponiveis</h3>
+    <table>
+      <tr><th>Linguagem</th><th>Frameworks</th><th>Explicacao de cada Framework</th></tr>
+      <tr><td><strong>Java</strong></td><td>EZ3270 ou JZos</td><td>Controla o terminal verde via Java</td></tr>
+      <tr><td><strong>Python</strong></td><td>py3270 ou tn3270</td><td>Controla o terminal verde via Python</td></tr>
+      <tr><td><strong>TypeScript</strong></td><td>x3270 via Node.js</td><td>Controla o terminal verde via Node</td></tr>
+      <tr><td><strong>Ruby</strong></td><td>tn3270 gem</td><td>Controla o terminal verde via Ruby</td></tr>
+    </table>
+    <div class="card-grid">
+      <div class="card"><h4>Diferenca chave: Web vs Mainframe</h4><p><strong>Web:</strong> Acha o botao por nome/CSS</p><p><strong>Mainframe:</strong> Acha o campo por <strong>linha + coluna</strong></p></div>
+      <div class="card"><h4>Diferenca chave: Acao</h4><p><strong>Web:</strong> Click, type, scroll</p><p><strong>Mainframe:</strong> ENTER, PF3 (sair), PF7 (subir), PF8 (descer)</p></div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>QA Flash &#183; Multi-Framework</span><span>6</span></div>
+</div>
+
+<div class="slide">
+  <div class="slide-header"><span class="number">6</span><h2>Matriz Completa de Combinacoes</h2><div class="subtitle">Tudo que o robo suporta em uma tabela</div></div>
+  <div class="content">
+    <div class="leigo-box" style="margin-bottom:15px;"><div class="leigo-title">EXPLICACAO LEIGA</div><p>Esta tabela mostra todas as combinacoes possiveis. O QA escolhe uma linha e o robo gera o codigo correspondente. Sao mais de 16 combinacoes diferentes.</p></div>
+    <table style="font-size:11px;">
+      <tr><th>Plataforma</th><th>Linguagem</th><th>Framework 1</th><th>Framework 2</th><th>Framework 3</th><th>BDD</th><th>Executor</th></tr>
+      <tr><td>Web</td><td>Java</td><td>Selenium 4</td><td>Playwright</td><td>&#8212;</td><td>Cucumber</td><td>JUnit 5</td></tr>
+      <tr><td>Web</td><td>Python</td><td>Selenium</td><td>Playwright</td><td>Behave</td><td>Behave</td><td>Pytest</td></tr>
+      <tr><td>Web</td><td>TypeScript</td><td>Cypress</td><td>Playwright</td><td>WebdriverIO</td><td>Cucumber</td><td>Mocha</td></tr>
+      <tr><td>Web</td><td>Ruby</td><td>Capybara</td><td>Selenium</td><td>SitePrism</td><td>Cucumber</td><td>RSpec</td></tr>
+      <tr><td>Mobile</td><td>Java</td><td>Appium</td><td>&#8212;</td><td>&#8212;</td><td>Cucumber</td><td>JUnit 5</td></tr>
+      <tr><td>Mobile</td><td>Python</td><td>Appium</td><td>&#8212;</td><td>&#8212;</td><td>Behave</td><td>Pytest</td></tr>
+      <tr><td>Mobile</td><td>TypeScript</td><td>WebdriverIO</td><td>Detox</td><td>&#8212;</td><td>Cucumber</td><td>Mocha</td></tr>
+      <tr><td>Mobile</td><td>Ruby</td><td>Appium_lib</td><td>&#8212;</td><td>&#8212;</td><td>Cucumber</td><td>RSpec</td></tr>
+      <tr><td>API</td><td>Java</td><td>RestAssured</td><td>Postman</td><td>&#8212;</td><td>Cucumber</td><td>JUnit 5</td></tr>
+      <tr><td>API</td><td>Python</td><td>Requests</td><td>Postman</td><td>&#8212;</td><td>Behave</td><td>Pytest</td></tr>
+      <tr><td>API</td><td>TypeScript</td><td>Supertest</td><td>Postman</td><td>&#8212;</td><td>Cucumber</td><td>Mocha</td></tr>
+      <tr><td>API</td><td>Ruby</td><td>HTTParty</td><td>Postman</td><td>&#8212;</td><td>Cucumber</td><td>RSpec</td></tr>
+      <tr><td>Mainframe</td><td>Java</td><td>EZ3270</td><td>JZos</td><td>&#8212;</td><td>Cucumber</td><td>JUnit 5</td></tr>
+      <tr><td>Mainframe</td><td>Python</td><td>py3270</td><td>tn3270</td><td>&#8212;</td><td>Behave</td><td>Pytest</td></tr>
+      <tr><td>Mainframe</td><td>TypeScript</td><td>x3270</td><td>&#8212;</td><td>&#8212;</td><td>Cucumber</td><td>Mocha</td></tr>
+      <tr><td>Mainframe</td><td>Ruby</td><td>tn3270</td><td>&#8212;</td><td>&#8212;</td><td>Cucumber</td><td>RSpec</td></tr>
+    </table>
+  </div>
+  <div class="slide-footer"><span>QA Flash &#183; Multi-Framework</span><span>7</span></div>
+</div>
+
+<div class="slide">
+  <div class="slide-header"><span class="number">7</span><h2>O Que Nao Muda em Nenhuma Combinacao</h2><div class="subtitle">A base de qualidade que e sempre igual</div></div>
+  <div class="content">
+    <div class="leigo-box"><div class="leigo-title">EXPLICACAO LEIGA</div><p>Independente da linguagem ou framework escolhido, estas regras sao <strong>sempre iguais</strong>. E o que garante qualidade em qualquer projeto, seja Web, Mobile, API ou Mainframe.</p></div>
+    <div class="card-grid">
+      <div class="card" style="border-top: 4px solid #10b981;"><h4 style="color:#10b981;">BDD (Gherkin)</h4><p>Dado, Quando, Entao - sempre em portugues, sempre igual. O diretor e o estagiario entendem a mesma coisa.</p></div>
+      <div class="card" style="border-top: 4px solid #3b82f6;"><h4 style="color:#3b82f6;">Padrao AAA</h4><p>Arrange (Preparar), Act (Executar), Assert (Validar). Estrutura clara em todos os testes.</p></div>
+      <div class="card" style="border-top: 4px solid #7c3aed;"><h4 style="color:#7c3aed;">Page Object Model</h4><p>Separar o mapeamento de tela do codigo de teste. Se a tela muda, so atualiza um arquivo.</p></div>
+      <div class="card" style="border-top: 4px solid #f59e0b;"><h4 style="color:#f59e0b;">Principios FIRST</h4><p>Rapido, Independente, Repetivel, Autovailidado, Oportuno. Cada teste roda sozinho.</p></div>
+      <div class="card" style="border-top: 4px solid #ef4444;"><h4 style="color:#ef4444;">Locators Resilientes</h4><p>Web: data-testid. Mobile: accessibility-id. Mainframe: linha+coluna. Nunca XPath absoluto.</p></div>
+      <div class="card" style="border-top: 4px solid #06b6d4;"><h4 style="color:#06b6d4;">Esperas Dinamicas</h4><p>Nunca usar pausa fixa (Thread.sleep, cy.wait). Sempre esperar o elemento aparecer.</p></div>
+      <div class="card" style="border-top: 4px solid #8b5cf6;"><h4 style="color:#8b5cf6;">Seguranca</h4><p>Credenciais sempre em .env, nunca em texto puro. Compliance OWASP e LGPD.</p></div>
+      <div class="card" style="border-top: 4px solid #059669;"><h4 style="color:#059669;">Human-in-the-Loop</h4><p>4 paradas obrigatorias. O QA humano decide em cada uma. O robo nunca avanca sozinho.</p></div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>QA Flash &#183; Multi-Framework</span><span>8</span></div>
+</div>
+
+<div class="slide">
+  <div class="slide-header"><span class="number">8</span><h2>Mesmo Teste, 3 Frameworks Diferentes</h2><div class="subtitle">O BDD nao muda, so muda o codigo por tras</div></div>
+  <div class="content">
+    <div class="leigo-box"><div class="leigo-title">EXPLICACAO LEIGA</div><p>O mesmo cenario de teste escrito em 3 frameworks diferentes. Repare que a logica e a mesma - so muda a forma de escrever o codigo, como falar a mesma frase em 3 idiomas diferentes.</p></div>
+    <h3>O cenario BDD (igual para todos)</h3>
+    <div class="code-block">Dado que estou na pagina de login
+Quando preencho o e-mail e clico em entrar
+Entao o dashboard deve aparecer</div>
+    <div class="two-col">
+      <div class="col">
+        <h3 style="font-size:15px;">Selenium (Java)</h3>
+        <div class="code-block" style="font-size:11px;">driver.findElement(By.cssSelector(
+    "[data-testid='email']"))
+    .sendKeys("user@test.com");
+
+driver.findElement(By.cssSelector(
+    "[data-testid='btn-entrar']"))
+    .click();
+
+wait.until(ExpectedConditions
+    .visibilityOfElementLocated(
+        By.cssSelector("[data-testid='dashboard']")));</div>
+      </div>
+      <div class="col">
+        <h3 style="font-size:15px;">Cypress (TypeScript)</h3>
+        <div class="code-block" style="font-size:11px;">cy.get('[data-testid="email"]')
+  .type('user@test.com');
+
+cy.get('[data-testid="btn-entrar"]')
+  .click();
+
+cy.get('[data-testid="dashboard"]')
+  .should('be.visible');</div>
+      </div>
+    </div>
+    <div style="margin-top:10px;">
+      <h3 style="font-size:15px;">Playwright (TypeScript)</h3>
+      <div class="code-block" style="font-size:11px;">await page.fill('[data-testid="email"]', 'user@test.com');
+await page.click('[data-testid="btn-entrar"]');
+await page.waitForSelector('[data-testid="dashboard"]', { state: 'visible' });</div>
+    </div>
+  </div>
+  <div class="slide-footer"><span>QA Flash &#183; Multi-Framework</span><span>9</span></div>
+</div>
+
+<div class="slide">
+  <div class="slide-header"><span class="number">9</span><h2>Como o QA Escolhe</h2><div class="subtitle">O fluxo de selecao na pratica</div></div>
+  <div class="content">
+    <div class="leigo-box"><div class="leigo-title">EXPLICACAO LEIGA</div><p>Quando voce inicia uma automacao, o robo te faz 3 perguntas simples. Voce responde e ele gera o codigo pronto na combinacao que voce escolheu.</p></div>
+    <div class="diagram-container">
+      <svg width="700" height="300" viewBox="0 0 700 300">
+        <rect x="20" y="20" width="200" height="60" rx="10" fill="#3b82f6"/>
+        <text x="120" y="45" text-anchor="middle" font-size="14" fill="white" font-weight="bold">PASSO 1: Plataforma?</text>
+        <text x="120" y="65" text-anchor="middle" font-size="11" fill="#dbeafe">Web, Mobile, API ou Mainframe</text>
+        <line x1="220" y1="50" x2="240" y2="50" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar1)"/>
+        <rect x="250" y="20" width="200" height="60" rx="10" fill="#7c3aed"/>
+        <text x="350" y="45" text-anchor="middle" font-size="14" fill="white" font-weight="bold">PASSO 2: Linguagem?</text>
+        <text x="350" y="65" text-anchor="middle" font-size="11" fill="#ede9fe">Java, Python, TS ou Ruby</text>
+        <line x1="450" y1="50" x2="470" y2="50" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar1)"/>
+        <rect x="480" y="20" width="200" height="60" rx="10" fill="#f59e0b"/>
+        <text x="580" y="45" text-anchor="middle" font-size="14" fill="white" font-weight="bold">PASSO 3: Framework?</text>
+        <text x="580" y="65" text-anchor="middle" font-size="11" fill="#fef3c7">Selenium, Cypress, etc.</text>
+        <line x1="580" y1="80" x2="580" y2="110" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar1)"/>
+        <rect x="400" y="120" width="360" height="50" rx="10" fill="#059669"/>
+        <text x="580" y="150" text-anchor="middle" font-size="14" fill="white" font-weight="bold">ROBO GERA O CODIGO</text>
+        <line x1="580" y1="170" x2="580" y2="200" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar1)"/>
+        <rect x="400" y="210" width="360" height="50" rx="10" fill="#0ea5e9"/>
+        <text x="580" y="240" text-anchor="middle" font-size="14" fill="white" font-weight="bold">QA REVISA E APROVA</text>
+        <rect x="20" y="120" width="360" height="140" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+        <text x="200" y="148" text-anchor="middle" font-size="13" font-weight="bold" fill="#64748b">EXEMPLO PRATICO</text>
+        <text x="40" y="170" font-size="12" fill="#1e40af">1. "Quero Web"</text>
+        <text x="40" y="190" font-size="12" fill="#5b21b6">2. "Em TypeScript"</text>
+        <text x="40" y="210" font-size="12" fill="#92400e">3. "Com Cypress"</text>
+        <text x="40" y="240" font-size="12" fill="#065f46" font-weight="bold">Resultado: Web+TS+Cypress+POM</text>
+        <defs><marker id="ar1" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/></marker></defs>
+      </svg>
+    </div>
+  </div>
+  <div class="slide-footer"><span>QA Flash &#183; Multi-Framework</span><span>10</span></div>
+</div>
+
+<div class="slide">
+  <div class="slide-header"><span class="number">10</span><h2>Resumo Executivo</h2><div class="subtitle">Argumentos para o setor de sistemas</div></div>
+  <div class="content">
+    <table>
+      <tr><th>Argumento</th><th>Detalhe</th></tr>
+      <tr><td><strong>1. Um robo, multiplas plataformas</strong></td><td>Web, Mobile, API e Mainframe - 4 plataformas em um so robo</td></tr>
+      <tr><td><strong>2. 4 linguagens suportadas</strong></td><td>Java, Python, TypeScript e Ruby - o time escolhe a que domina</td></tr>
+      <tr><td><strong>3. 12+ frameworks</strong></td><td>Selenium, Cypress, Playwright, Appium, RestAssured, Postman, py3270 e mais</td></tr>
+      <tr><td><strong>4. 16+ combinacoes</strong></td><td>Mais de 16 combinacoes de plataforma + linguagem + framework</td></tr>
+      <tr><td><strong>5. BDD sempre igual</strong></td><td>Gherkin nao muda entre frameworks - reuso total de cenarios</td></tr>
+      <tr><td><strong>6. Qualidade sempre igual</strong></td><td>FIRST, DRY, AAA, POM, OWASP, LGPD - em qualquer combinacao</td></tr>
+      <tr><td><strong>7. Postman integrado</strong></td><td>Teste de API manual (QA confere) e automatizado (Newman no CI/CD)</td></tr>
+      <tr><td><strong>8. Human-in-the-Loop</strong></td><td>O QA humano decide em 4 paradas - o robo nunca avanca sozinho</td></tr>
+      <tr><td><strong>9. Baixo custo</strong></td><td>80% da arquitetura se reutiliza entre plataformas. Nao comeca do zero</td></tr>
+      <tr><td><strong>10. Equipe nao reaprende</strong></td><td>Conceitos de BDD e Gherkin sao os mesmos. So aprende a ferramenta nova</td></tr>
+    </table>
+    <div class="highlight"><p style="margin:0; font-size:16px;"><strong>Decisao:</strong> O QA Flash nao e um robo para uma linguagem. E um robo poliglota que se adapta ao que o time precisa, mantendo o mesmo padrao de qualidade em todas as combinacoes.</p></div>
+  </div>
+  <div class="slide-footer"><span>QA Flash &#183; Multi-Framework</span><span>11</span></div>
+</div>
+
+<div class="slide cover">
+  <div class="logo">&#9889;</div>
+  <h1 style="font-size:36px;">QA Flash</h1>
+  <h2>Multi-Linguagem, Multi-Framework, Multi-Plataforma</h2>
+  <div style="margin-top:40px; text-align:center; font-size:16px; color:#7dd3fc; line-height:2.2;">
+    4 Plataformas: Web, Mobile, API, Mainframe<br>
+    4 Linguagens: Java, Python, TypeScript, Ruby<br>
+    12+ Frameworks: Selenium, Cypress, Playwright...<br>
+    16+ Combinacoes possiveis<br>
+    1 padrao de qualidade: sempre o mesmo
+  </div>
+  <div style="margin-top:40px; text-align:center; font-size:14px; color:#38bdf8;">"Um robo poliglota. O QA escolhe, o robo executa, a qualidade nao muda."</div>
+  <div style="margin-top:50px; text-align:center; border-top: 1px solid rgba(255,255,255,0.15); padding-top:20px;">
+    <div style="font-size:20px; color:#fff; font-weight:bold;">Nilson Correa Souza</div>
+    <div style="font-size:15px; color:#7dd3fc; margin-top:5px;">Analista de Teste - QA Engineer</div>
+  </div>
+  <div class="footer">Novembro 2026 &#183; github.com/NiltesteQA/qa-flash-ui-front</div>
+</div>
+
+</body>
+</html>
